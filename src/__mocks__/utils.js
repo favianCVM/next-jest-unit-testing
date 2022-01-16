@@ -7,6 +7,7 @@ import { ThemeProvider, createTheme } from "@material-ui/core";
 import reducer from "../../store/reducer";
 import { MemoryRouterProvider } from "next-router-mock/MemoryRouterProvider";
 // import { RouterContext } from "next/dist/shared/lib/router-context";
+
 const theme = createTheme({});
 
 function render(

@@ -1,21 +1,20 @@
 import React from "react";
-import { render, screen } from "../__mocks__/ProviderMock";
-import ProviderMock from "../__mocks__/ProviderMock";
+import { render, screen } from "../__mocks__/utils";
 import Home from "../../pages/index";
 
-// jest.mock('next/dynamic', () => () => {
-//   const DynamicComponent = () => null;
-//   DynamicComponent.displayName = 'LoadableComponent';
-//   DynamicComponent.preload = jest.fn();
-//   return DynamicComponent;
-// });
+jest.mock("next/dynamic", () => () => {
+  const DynamicComponent = () => null;
+  DynamicComponent.displayName = "LoadableComponent";
+  DynamicComponent.preload = jest.fn();
+  return DynamicComponent;
+});
 
 test("Home Page", () => {
   render(<Home />);
 
-  const heading = screen.getByRole("heading", {
-    name: /welcome to next\.js!/i,
-  });
+  const heading = screen.getByText("Welcome to Next.js!");
+
+  console.log(heading);
 
   expect(heading).toBeInTheDocument();
 });
